@@ -2,6 +2,7 @@ function click(){
 
 
 var input=this.innerHTML;
+anim(input);
 
 switch(input){
 case 'w':
@@ -44,14 +45,6 @@ break;
 }
 
 
-
-
-
-
-
-
-
-
 }
 
 
@@ -63,9 +56,10 @@ for(var i=0;i< document.querySelectorAll(".drum").length;i++){
 
 }
 
-  document.addEventListener("keydown", function (event){
+  document.addEventListener("keydown", function (even){
 
-    aa(event.key);
+    aa(even.key);
+    anim(even.key);
   });
 
 function aa(event){
@@ -114,5 +108,12 @@ function aa(event){
 }
 
 
+
+}
+function anim(key){
+
+document.querySelector("."+key).classList.add("pressed");
+
+setTimeout( function (){ document.querySelector("."+key).classList.remove("pressed")},100)
 
 }
